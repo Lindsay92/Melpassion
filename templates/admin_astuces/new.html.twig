@@ -1,0 +1,11 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Astuces{% endblock %}
+
+{% block body %}
+    <h1>Nouveau : Astuces</h1>
+
+    {{ include('admin_astuces/_form.html.twig') }}
+
+    <a href="{{ path('admin_astuces_index') }}" class="btn btn-warning">Retour à la liste</a>
+{% endblock %}

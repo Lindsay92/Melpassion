@@ -1,0 +1,42 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Deco{% endblock %}
+
+{% block body %}
+    <h1>Do it yourself</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ deco.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ deco.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ deco.description|raw }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ deco.imageName }}</td>
+            </tr>
+            <tr>
+                <th>ImageSize</th>
+                <td>{{ deco.imageSize }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ deco.updatedAt ? deco.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_deco_index') }}" class="btn btn-warning" class="btn btn-warning">Retour à la liste</a>
+
+    <a href="{{ path('admin_deco_edit', {'id': deco.id}) }}" class="btn btn-success">Mettre à jour</a>
+
+    {{ include('admin_deco/_delete_form.html.twig') }}
+{% endblock %}

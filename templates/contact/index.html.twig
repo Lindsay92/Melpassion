@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+{# ====== mon formulaire de contact ======= #}
+<div class="row">
+    <div class="col-12 col-md-7">
+        <main class="my-3">
+            <h2 class="">Formulaire de contact ! </h2>
+                <p>
+                Besoin d’aide,  envie de changement,... je serais ravis de vous aider dans votre projet.<br><br>
+                Vous pouvez me contactez au +33 6 95 74 99 97 ou bien par le formulaire ci-dessous.  
+                Vous pouvez également me suivre sur <strong class="linkInsta"><a class="text-decoration-none text-dark" href="https://www.instagram.com/?hl=fr" target="_blank">Instagram</a></strong> où je partage également mes astuces et mon quotidien.
+                </p>
+        </main>
+
+        {#Condition alertant sur le statut du message //si rempli: message en vert confirmant l'envoi#}
+        {% for label, messages in app.flashes(['success', 'warning', 'danger']) %}
+            {% for message in messages %}
+            <div class="alert alert-{{ label }} alert-dismissible fade show mt-3" role="alert">
+                {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close"></button>
+            </div>
+            {% endfor %}
+        {% endfor %}
+
+  
+        {# apparition de mon formulaire #}
+            {# form_start => permet de générer la balise <form> avec les différents attributs#}
+                {{ form_start(form)}}
+                <div class="col-12 col-md-5">
+                    <div class="form_group">
+                        {{ form_label(form.name) }}
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+                </div>    
+                <div class="col-12 col-md-5">
+                    <div class="form_group">
+                        {{ form_label(form.firstname) }}
+                        {{ form_widget(form.firstname) }}
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="form_group">
+                        {{ form_label(form.phone) }}
+                        {{ form_widget(form.phone) }}
+                        {{ form_errors(form.phone) }}
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="form_group">
+                        {{ form_label(form.email) }}{#affiche le label du champs#}
+                        {{ form_widget(form.email) }}{#affiche le type de champs #}
+                        {{ form_errors(form.email) }}{# affiche les erreurs éventuelles du formulaire#}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-7 form_group">
+                        {{ form_row(form.message) }}{#affiche le form_widget et form_label#}
+                    </div>
+                </div>
+
+                {# recaptach google #}
+                <div class="g-recaptcha mt-3" data-sitekey="6LdUHAseAAAAAGd-3vvWPtqPd7Ii9HgQAdEKwDe_"></div>
+
+                <button type="submit" class="btn btn-success mt-3">Envoyer</button>
+                {{ form_end(form) }}
+            {# permet de générer la fermeture de <form> avec les différents champs restants non affichés#}
+
+            </div>
+
+            <div class="col-12 col-md-5 my-2 align-self-center">
+                <img class="imageContact" src="{{asset('images/contact.jpg')}}" alt="Image d'un livre et d'un stylo ">
+            </div>
+    </div>
+
+    
+    <section><!--informations des conditions du formulaire-->
+        <p class="text1 my-3">Lors de la validation du devis, un acompte de ... vous sera demandé à l’issue de la première visite.</p>
+    
+        <p class="text2">
+        Les informations recueillies à partir de ce formulaire sont transmises aux équipes administratives de Melpassion dans le but d'apporter une réponse à votre message. Vos données personnelles ne sont en aucun cas cédées ou vendues à des tiers.</p>
+    </section><!--font-size : petit-->
+
+{% endblock %}

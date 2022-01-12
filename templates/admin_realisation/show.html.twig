@@ -1,0 +1,42 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Realisation{% endblock %}
+
+{% block body %}
+    <h1>Voir : Mes réalisations</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ realisation.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ realisation.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ realisation.description }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ realisation.imageName }}</td>
+            </tr>
+            <tr>
+                <th>ImageSize</th>
+                <td>{{ realisation.imageSize }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ realisation.updatedAt ? realisation.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_realisation_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    <a href="{{ path('admin_realisation_edit', {'id': realisation.id}) }}" class="btn btn-success">Mettre à jour</a>
+
+    {{ include('admin_realisation/_delete_form.html.twig') }}
+{% endblock %}

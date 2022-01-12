@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conditions Générales de ventes{% endblock %}
+
+{% block body %}
+
+
+    {% for conditions in conditions %}
+
+        <h1>{{conditions.title}}</h1>
+
+            <p class="fs-4">{{conditions.description|raw}}</p>
+
+    {% endfor %}
+
+{% endblock %}

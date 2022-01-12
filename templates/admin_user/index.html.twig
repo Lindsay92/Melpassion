@@ -1,0 +1,48 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block body %}
+    <h1>Liste des {{title}}</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                {# <th>Password</th> #}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <a href="{{ path('admin_user_new', {'role': role}) }}" class="btn btn-success">Nouveau</a>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
+                <td> {% if "ROLE_ADMIN" in user.roles %}
+                    Administrateur
+                {% elseif "ROLE_USER" %}
+                    Utilisateur
+                        
+                {% endif %}
+                </td>
+                {# <td>{{ user.password }}</td> #}
+                <td>
+                    <a href="{{ path('admin_user_show', {'id': user.id, 'role': role}) }}"><img src="{{asset ('images/eye.svg')}}" alt="Voir" title="Voir"></a>
+                    <a href="{{ path('admin_user_edit', {'id': user.id, 'role': role}) }}"><img src="{{asset ('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
+                    <a href="{{ path('admin_user_delete', {'id': user.id, 'role': role}) }}"><img src="{{asset ('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

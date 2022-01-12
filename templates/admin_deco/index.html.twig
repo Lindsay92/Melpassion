@@ -1,0 +1,47 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Deco{% endblock %}
+
+{% block body %}
+    <h1>Do it yourself</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                {# <th>Description</th> #}
+                <th>ImageName</th>
+                {# <th>ImageSize</th> #}
+                {# <th>UpdatedAt</th> #}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <a href="{{ path('admin_deco_new') }}" class="btn btn-success">Nouveau</a>
+
+        {% for deco in decos %}
+            <tr>
+                <td>{{ deco.id }}</td>
+                <td>{{ deco.title }}</td>
+                <td><img src="{{ asset('images/imageDeco/' ~ deco.imageName) }}" alt="{{deco.title}}" class="img-fluid w-50"></td>
+                {# <td>{{ deco.description }}</td> #}
+                {# <td>{{ deco.imageName }}</td> #}
+                {# <td>{{ deco.imageSize }}</td> #}
+                {# <td>{{ deco.updatedAt ? deco.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                <td>
+                    <a href="{{ path('admin_deco_show', {'id': deco.id}) }}"><img src="{{asset ('images/eye.svg')}}" alt="Voir" title="Voir"></a>
+                    <a href="{{ path('admin_deco_edit', {'id': deco.id}) }}"><img src="{{asset ('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
+                    <a href="{{ path('admin_deco_delete', {'id': deco.id}) }}"><img src="{{asset ('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Prestations{% endblock %}
+
+{% block body %}
+    <h1>Nouveau : Mes prestations</h1>
+
+    {{ include('admin_prestations/_form.html.twig') }}
+
+    <a href="{{ path('admin_prestations_index') }}" class="btn btn-warning">Retour à la liste</a>
+{% endblock %}

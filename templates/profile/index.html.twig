@@ -1,0 +1,55 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block body %}
+
+    {% for label, messages in app.flashes(['success', 'warning', 'danger']) %}
+    {# nom des couleurs par défaut de bootstrap qui st aussi ds profileController #}
+        {% for message in messages %}
+        <div class="alert alert-{{ label }} alert-dismissible fade show mt-3" role="alert">
+            {{ message }}{# message de profileController #}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    {% endfor %}
+
+    <nav class="navbar navbar-light bg-secondary my-3">
+        <div class="container-fluid">
+            <span class="navbar-text text-light">
+                Mes informations                  
+            </span>
+        </div>
+    </nav>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="home-tab">
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {# <button class='btn btn-success mt-3' type="submit">Modifier</button> #}
+            {{ form_end(form) }}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    {# on vérifie s'il y a des objets de la classe alert dans le DOM (Document Object Model) de la page à l'aide du sélecteur jquery $("") qui comme on sélectionnne une classe nous renvoie un tableau dont on vérifie que la longueur est >0 #}
+    if($(".alert").length>0) 
+        {
+        //on crée une pause avec setTimeout qui déclenchera une fonction anonyme après 2 secondes
+        setTimeout(function()
+        {
+    //on déclenche la disparition en fondu (animation de style css) des alerts
+    //lorsque le fondu est effectué on supprime l'alert du DOM avec remove()
+
+        $(".alert").fadeOut(500, function(){ 
+        $(".alert").remove() });
+
+        }, 2000);
+    }
+    
+</script>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Edit Deco{% endblock %}
+
+{% block body %}
+    <h1>Mettre à jour : Do it yourself</h1>
+
+    {{ include('admin_deco/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_deco_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    {{ include('admin_deco/_delete_form.html.twig') }}
+{% endblock %}

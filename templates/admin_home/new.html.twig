@@ -1,0 +1,11 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+    <h1>Nouveau : Page d'accueil</h1>
+
+    {{ include('admin_home/_form.html.twig') }}
+
+    <a href="{{ path('admin_home_index') }}" class="btn btn-warning">Retour à la liste</a>
+{% endblock %}

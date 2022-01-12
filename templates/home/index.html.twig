@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Bienvenue sur le site Melpassion - décoration d'intérieur et coach en rangement!
+{% endblock %}
+
+{% block body %}
+
+    {# <h1>
+        Hello Lindsay 
+        {{ controller_name }}
+        ! ✅
+    </h1> #}
+
+    <div class="row my-4">
+
+        {# partie gauche #}
+
+        <p class="col-12 col-md-6 text-center align-self-center">
+            Je suis Mélanie, formée et certifiée en décoration d’intérieur et en coach en rangement basé sur Macon.<br>
+            Je suis passionnée par mon métier et ravie de pouvoir vous aider dans l’épanouissement de votre futur projet. Je vous accompagnerai en toute bienveillance et en toute confidentialité pour vous aider à retrouver une maison sereine et organisée.<br>
+            Je vous donnerai également des idées de rangement, des astuces personnalisées et je m’adapterai à votre situation.
+            <br> Prêt à vous lancer ??...
+        </p>
+
+        {# partie droite #}
+
+        <div class="col-12 col-md-6">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{asset('images/imageHome/cuisine-6189106b72c04670374758.jpg')}}" class="d-block w-100" alt="Première photo de ma cuisine rénovée">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/imageHome/cuisine2-6189109a9ee86989019976.jpg')}}" class="d-block w-100" alt="Deuxième photo de ma cuisine rénovée">
+                    </div>
+                            
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">
+                                    Previous
+                                </span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">
+                                    Next
+                                </span>
+                            </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+            

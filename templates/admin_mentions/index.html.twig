@@ -1,0 +1,40 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Mentions Légales{% endblock %}
+
+{% block body %}
+    <h1>Mentions Légales</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <a href="{{ path('admin_mentions_new') }}" class="btn btn-success">Nouveau</a>
+
+        {% for mention in mentions %}
+            <tr>
+                <td>{{ mention.id }}</td>
+                <td>{{ mention.title }}</td>
+                <td>{{ mention.description|raw }}</td>
+                <td>
+                    <a href="{{ path('admin_mentions_show', {'id': mention.id}) }}"><img src="{{asset ('images/eye.svg')}}" alt="Voir" title="Voir"></a>
+                    <a href="{{ path('admin_mentions_edit', {'id': mention.id}) }}"><img src="{{asset ('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
+                    <a href="{{ path('admin_mentions_delete', {'id': mention.id}) }}"><img src="{{asset ('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

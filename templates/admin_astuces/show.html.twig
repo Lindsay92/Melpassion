@@ -1,0 +1,42 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Astuces{% endblock %}
+
+{% block body %}
+    <h1>Voir : Astuces</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ astuce.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ astuce.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ astuce.description|raw }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ astuce.imageName }}</td>
+            </tr>
+            <tr>
+                <th>ImageSize</th>
+                <td>{{ astuce.imageSize }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ astuce.updatedAt ? astuce.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_astuces_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    <a href="{{ path('admin_astuces_edit', {'id': astuce.id}) }}" class="btn btn-success">Mettre à jour</a>
+
+    {{ include('admin_astuces/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Blog index{% endblock %}
+
+{% block body %}
+    <h1>Blog</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Resume</th>
+                {# <th>Description</th> #}
+                <th>CreatedAt</th>
+                <th>ImageName</th>
+                {# <th>ImageSize</th> #}
+                {# <th>UpdatedAt</th> #}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <a href="{{ path('admin_blog_new') }}" class="btn btn-success">Nouveau</a>
+        {% for blog in blogs %}
+            <tr>
+                <td>{{ blog.id }}</td>
+                <td>{{ blog.title }}</td>
+                <td>{{ blog.resume }}</td>
+                {# <td>{{ blog.description }}</td> #}
+                <td>{{ blog.createdAt ? blog.createdAt|date('d-m-Y') : '' }}</td>
+                <td><img src="{{ asset('images/imageBlog/' ~ blog.imageName) }}" alt="{{blog.title}}" class="img-fluid w-50"></td>
+                {# <td>{{ blog.imageName }}</td> #}
+                {# <td>{{ blog.imageSize }}</td> #}
+                {# <td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                <td>
+                    <a href="{{ path('admin_blog_show', {'id': blog.id}) }}"><img src="{{asset ('images/eye.svg')}}" alt="Voir" title="Voir"></a>
+                    <a href="{{ path('admin_blog_edit', {'id': blog.id}) }}"><img src="{{asset ('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
+                    <a href="{{ path('admin_blog_delete', {'id': blog.id}) }}"><img src="{{asset ('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

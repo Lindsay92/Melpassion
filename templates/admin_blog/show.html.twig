@@ -1,0 +1,50 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    <h1>Voir : article du blog</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ blog.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ blog.title }}</td>
+            </tr>
+            <tr>
+                <th>Resume</th>
+                <td>{{ blog.resume }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ blog.description|raw }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ blog.imageName }}</td>
+            </tr>
+            <tr>
+                <th>ImageSize</th>
+                <td>{{ blog.imageSize }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_blog_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    <a href="{{ path('admin_blog_edit', {'id': blog.id}) }}" class="btn btn-success">Mettre à jour</a>
+
+    {{ include('admin_blog/_delete_form.html.twig') }}
+{% endblock %}

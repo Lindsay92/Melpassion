@@ -1,0 +1,42 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Prestations{% endblock %}
+
+{% block body %}
+    <h1>Voir : Mes prestations</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ prestation.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ prestation.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ prestation.description|raw }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ prestation.imageName }}</td>
+            </tr>
+            <tr>
+                <th>ImageSize</th>
+                <td>{{ prestation.imageSize }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ prestation.updatedAt ? prestation.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_prestations_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    <a href="{{ path('admin_prestations_edit', {'id': prestation.id}) }}" class="btn btn-success">Mettre à jour</a>
+
+    {{ include('admin_prestations/_delete_form.html.twig') }}
+{% endblock %}

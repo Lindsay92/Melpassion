@@ -1,0 +1,253 @@
+@import '_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&family=Ephesis&family=Euphoria+Script&family=Give+You+Glory&display=swap');
+
+//======= mon en-tête et navbar
+// .titre1{
+//     font-family: 'Lora', serif;
+//     font-weight: 700;
+//     margin-left: 100px;
+// }
+
+.titre2{
+    text-align: center;
+    font-size: 70px;
+    padding-top: 60px;
+    padding-bottom: 25px;
+    // font-family: 'Lora', serif;
+    font-family: 'Ephesis', cursive;
+    
+}
+
+.banniere{
+    border: 1px solid rgba(12, 73, 4, 0.55);
+    background: linear-gradient(rgb(253, 253, 253), rgba(12, 73, 4, 0.55)) ;
+}
+
+.navbar{
+    // background-color: rgba(224, 205, 190, 0.55);
+    color: black;
+    text-align: center;
+    border: 1px solid rgba(224, 205, 190, 0.55);
+    font-family: 'Lora', serif;
+}
+
+.nav-item{
+    font-size: 20px;
+    font-family: 'Lora', serif;
+}
+
+a.nav-link:hover{
+    background-color: rgba(247, 241, 237, 1);
+    // text-decoration: underline;
+}
+
+//=========mon en-tête et navbar
+
+
+
+// ==========dropdown============
+a.dropdown-item:hover{
+    background-color: rgba(247, 241, 237, 1);
+}
+
+a.dropdown-item:active{
+    background-color: rgba(12, 73, 4, 0.55);
+}
+// ==========dropdown============
+
+
+
+.imageContact{
+    // margin-top: 200px;
+    width: auto;
+    height : 250px;
+    border: 5px solid rgba(224, 205, 190, 0.55);
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.imageAdmin{
+    border: 5px solid rgba(53, 48, 47, 0.55);
+}
+
+.service{
+    border: 5px solid rgba(224, 205, 190, 0.55);
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.text1{
+    font-size: 12px;
+}
+
+.text2{
+    font-size: 10px;
+}
+
+h2{
+    font-family: 'Ephesis', cursive;
+    font-size: 40px;
+}
+
+h5{
+    font-family: 'Lora', serif;
+}
+
+p{
+    font-family: 'Lora', serif;
+    font-size: 20px;
+}
+
+//=========mon "footer"
+footer{
+    background-color:rgba(12, 73, 4, 0.55);
+    position: relative;
+    border: 1px solid rgba(12, 73, 4, 0.55);
+    margin-top: 100px;
+
+}
+//=========mon "footer"
+
+
+// #galerie img{
+//     margin: 0 0 15px 0;
+// }
+
+
+//=========Gestion de la galerie images
+#voile{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s, visibility 1s;
+}
+
+#voile img{
+    border: solid 5px white;
+    max-height : 80%;
+    width: auto;
+}
+
+#voile.visible{
+    opacity : 1;
+    visibility: visible;
+}
+
+.photos{
+    margin-top: 50px;
+    
+}
+
+//=========Gestion de la galerie images
+
+//=========Bouton pour revenir en haut dans la galerie d'image
+
+.btnColor{
+    background : #fff;
+    box-shadow: 0px 0px 8px 2px #000000;
+    margin-top: 50px;
+}
+
+//=========Bouton pour revenir en haut dans la galerie d'image
+
+.linkInsta{
+    text-decoration: underline;
+}
+
+//=========Gestion des medias queries
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .titre2{
+        font-size: 40px;
+    }
+    .titre1{
+        text-align: center;
+        margin-left: 0px;
+    }
+    .imageContact{
+        display: none;
+    }
+    .photoBlog{
+        width: 60%;
+        margin: auto;
+    }
+    .service{
+        display: none;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .titre2{
+        font-size: 40px;
+    }
+    .imageContact{
+        display: none;
+    }
+    .photoBlog{
+        width: 80%; 
+    }
+    .service{
+        display: block;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+    .titre2{
+        font-size: 40px;
+    }
+    .imageContact{
+        display: block;
+    }
+    .service{
+        display: block;
+    }
+    
+ }
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .titre2{
+        font-size: 70px;
+    }
+    .titre1{
+        text-align: left;
+        margin-left: 100px;
+    }
+    .imageContact{
+        display: block;
+    }
+    .service{
+        display: block;
+    }
+    
+    
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) { 
+    .titre2{
+        font-size: 70px;
+    }
+    .titre1{
+        text-align: left;
+        margin-left: 100px;
+    }
+    
+    .imageContact{
+        display:block;
+    }
+
+    .service{
+        display: block;
+    } 
+}

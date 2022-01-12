@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prestations et tarifs{% endblock %}
+
+{% block body %}
+
+{# =======page détail pour présenter les services en lien aux 2 prestations ======= #}
+
+    <article>
+        <div class="row my-4  align-items-center">{#images#}
+            <div class="col-12 col-md-6 row text-center">
+                <img class='service' src="{{ asset("images/imagePrestations/" ~ service.imageName) }}" class="img-fluid w-85" alt="{{ service.description }}">
+            </div>
+        
+
+            <div class="col-12 col-md-6 text-center">{#présentation#}
+                <h2>{{ service.title }}</h2>
+                    <div>{{ service.description|raw }}</div>
+            </div>
+        </div>
+
+        {#lien retour sur la page index.html.twig de tarif#}
+        
+        <p class="my-3">
+            <a href="{{ path('prestations')}}" class="text-decoration-none text-dark">
+                <img src="{{asset ('images/corner-left-up.svg')}}"> Retour "Prestations et Tarifs"
+            </a>
+        </p>
+    </article>
+
+
+
+    
+
+{% endblock %}

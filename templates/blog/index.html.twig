@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+<h2 class="text-center my-4">Ma vie quotidienne</h2>
+
+<section class="row">
+
+    {% for blog in blogContent %}
+
+        <div class="col-12 col-md-3 ms-4 align-items-center">
+            <div class="card my-4" style="width: 18rem;">
+                <img src="{{ asset('images/imageBlog/' ~ blog.imageName)}}" alt="{{blog.title}}" class="img-fluid w-60 imageEffect" class="card-img-top">
+
+                <div class="card-body">
+                    <div class="text-center my-4">
+                        <h5 class="card-title">{{blog.title}}</h5>
+                        <div class="card-text">{{blog.resume|raw}}</div>
+                        <div>{{blog.createdAt|date("d/m/Y")}}</div>
+                    </div>
+
+                    <div class="position-absolute bottom-0 end-0">
+                        <a href="{{ path('blog-detail', {'slug': blog.id})}}" class="btn btn-dark my-1">Lire l'article</a>
+                    </div>
+                        
+                                
+                                
+                </div> {#positionne les boutons en bas de ma div#}
+            </div>
+        </div>
+    
+    {% endfor %}
+
+</section>
+{% endblock %}

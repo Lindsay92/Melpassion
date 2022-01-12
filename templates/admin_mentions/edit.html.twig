@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Mentions Légales{% endblock %}
+
+{% block body %}
+    <h1>Mettre à jour : Les mentions Légales</h1>
+
+    {{ include('admin_mentions/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_mentions_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    {{ include('admin_mentions/_delete_form.html.twig') }}
+{% endblock %}

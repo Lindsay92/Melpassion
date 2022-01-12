@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Edit Astuces{% endblock %}
+
+{% block body %}
+    <h1>Mettre à jour : Astuces</h1>
+
+    {{ include('admin_astuces/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_astuces_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    {{ include('admin_astuces/_delete_form.html.twig') }}
+{% endblock %}

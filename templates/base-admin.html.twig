@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{asset('css/admin.min.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+
+    <body>
+    
+        <header class="bg-dark text-light py-3 px-3 d-flex justify-content-between">
+
+            <div class="text-light">Melpassion : Admin</div>
+
+                <div class="d-flex">
+                    <span>Bienvenue {{ app.user.email }}</span> 
+                        {# app.user => Fetch the User in a Template: récupération : Récupérer l'utilisateur dans un modèle grâce à la variable globale de Twig #}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="ms-3 text-light" href="{{ path('app_logout') }}">Déconnexion</a>
+                        {% endif %} 
+                </div>
+        </header>
+        
+    </body>
+
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-8 col-md-2 bg-admin-menu">
+                    <ul class="list-unstyled my-2">
+                        <h6 class="ms-2 my-3">Gestion du site</h6>
+                            <li> <a href="{{ path('admin_dashboard') }}" class="list-group-item list-group-item-action">Dashboard</a>  </li>
+                            <li> <a href="{{ path('admin_home_index') }}" class="list-group-item list-group-item-action">Page d'accueil</a> </li>
+                            <li><a href="{{ path('admin_realisation_index') }}" class="list-group-item list-group-item-action">Mes réalisations</a></li>
+                            <li> <a href="{{ path('admin_astuces_index') }}" class="list-group-item list-group-item-action">Actuces et conseils</a></li>
+                            <li> <a href="{{ path('admin_deco_index') }}" class="list-group-item list-group-item-action">Do it Yourself</a></li>
+                            <li> <a href="{{ path('admin_prestations_index') }}" class="list-group-item list-group-item-action">Mes prestations</a> </li>
+                            <li> <a href="{{ path('admin_blog_index') }}" class="list-group-item list-group-item-action">Mon blog</a> </li>
+
+                        <h6 class="ms-2 my-3">Gestion du pied de page</h6>
+                            <li> <a href="{{ path('admin_mentions_index') }}" class="list-group-item list-group-item-action">Mentions Légales</a>  </li>
+                            <li> <a href="{{ path('admin_conditions_index') }}" class="list-group-item list-group-item-action">CGV</a>  </li>
+
+                        <h6 class="ms-2 my-3">Gestion des utilisateurs</h6>
+                            <li> <a href="{{ path('admin_user_index', { role: 'admin'}) }}" class="list-group-item list-group-item-action">Administrateur</a>  </li>
+                            <li> <a href="{{ path('admin_user_index', { role: 'user'}) }}" class="list-group-item list-group-item-action">Utilisateur</a>  </li>
+
+                        <h6 class="ms-2 my-3">Gestion de mon compte</h6>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li><a href="{{path('profile')}}" class="list-group-item list-group-item-action">Mon compte</a></li>
+                            {% endif %}                   
+                    </ul>
+                </div>
+                
+
+
+                <div class="col-12 col-md-10">
+                    {% block body %}{% endblock %}
+            
+                </div>
+            </div>
+        
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        {% block javascripts %}{% endblock %}
+        
+    </body>
+</html>

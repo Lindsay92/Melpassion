@@ -1,0 +1,46 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+    <h1>Page d'accueil</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                {# <th>Description</th> #}
+                <th>ImageName</th>
+                {# <th>ImageSize</th> #}
+                {# <th>UpdatedAt</th> #}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <a href="{{ path('admin_home_new') }}" class="btn btn-success">Nouveau</a>
+        {% for home in homes %}
+            <tr>
+                <td>{{ home.id }}</td>
+                <td>{{ home.title }}</td>
+                {# <td>{{ home.description }}</td> #}
+                {# <td>{{ home.imageName }}</td> #}
+                {# <td>{{ home.imageSize }}</td> #}
+                <td><img src="{{ asset('images/imageHome/' ~ home.imageName) }}" alt="{{home.title}}" class="img-fluid w-50"></td>
+                {# <td>{{ home.updatedAt ? home.updatedAt|date('d-m-Y') : '' }}</td> #}
+                <td>
+                    <a href="{{ path('admin_home_show', {'id': home.id}) }}"><img src="{{asset ('images/eye.svg')}}" alt="Voir" title="Voir"></a>
+                    <a href="{{ path('admin_home_edit', {'id': home.id}) }}"><img src="{{asset ('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
+                    <a href="{{ path('admin_home_delete', {'id': home.id}) }}"><img src="{{asset ('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

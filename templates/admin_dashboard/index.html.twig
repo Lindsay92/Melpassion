@@ -1,0 +1,25 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Hello AdminDashboardController!{% endblock %}
+
+{% block body %}
+
+<div class="align-items-center">
+
+<div class="b-example-divider py-2 "></div>
+
+    <div class="bg-dark opacity-75 text-secondary px-4 py-5 text-center ">
+        <div class="py-5">
+            <h1 class="display-5 fw-bold text-white">Bienvenue !</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="fs-5 mb-4">Bienvenue sur le back office Melpassion.</p>
+            </div>
+        </div>
+    </div>  
+</div>
+
+<div class="my-2 align-self-center text-center">
+    <img class="imageAdmin w-50" src="{{asset('images/admin.jpg')}}" alt="Image d'un livre et d'un stylo ">
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Realisation{% endblock %}
+
+{% block body %}
+    <h1>Mettre à jour : Mes réalisations</h1>
+
+    {{ include('admin_realisation/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_realisation_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    {{ include('admin_realisation/_delete_form.html.twig') }}
+{% endblock %}

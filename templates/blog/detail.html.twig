@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail Blog{% endblock %}
+
+{% block body %}
+
+{# ===== page dédiée à ma page détail de mes articles + form commenatire ======= #}
+
+{# ===== détail de mon blog ======= #}
+
+<article>
+    <div class="row my-4 align-items-center">
+        <div class="col-12 col-md-6 row text-center">
+            <img src="{{ asset('images/imageBlog/' ~ blog.imageName)}}" alt="{{blog.title}}" class="img-fluid w-55 photoBlog" class="card-img-top">
+        </div>
+    
+        <div class="col-12 col-md-6 text-center">
+            <h2 class="my-3">{{blog.title}}</h2>
+                <div>{{ blog.description|raw }}</div>
+        </div>   
+    </div>
+</article>
+{# ===== détail de mon blog ======= #}
+
+    {# Ajout message d'alerte lors d'envoi du com #}
+    {% for label, messages in app.flashes(['success', 'warning', 'danger']) %}
+        {% for message in messages %}
+        <div class="alert alert-{{ label }} alert-dismissible fade show mt-3" role="alert">
+            {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close"></button>
+        </div>
+        {% endfor %}
+    {% endfor %}
+    {# Ajout message d'alerte lors d'envoi du com #}
+
+    {# Appartion des commentaires #}
+    <div>
+    <h3 class="my-2">Laissez-moi un commentaire</h3>
+    {% for comments in blog.comments %}
+
+        {% if comments.parent == null %}
+            <h6>Commentaire de {#{{loop.index}}#} {{comments.name}}, le {{comments.createdAt|date("d/m/Y H:i")}} : </h6>
+
+            {# {{dump(commentaire)}} => affichage des commentaires #}
+            <!--<p>--><!--Publié--> {#par {{comments.name}}#} {#{{comments.createdAt|date("d/m/Y H:i")}}#} <!--</p>-->
+            <div>{{comments.content|raw}}</div>
+
+            <p><a href="#ajout-commentaire" data-reply data-id="{{comments.id}}" class="btn btn-secondary my-2">Répondre</a></p>
+        
+                {# on affiche les réponses #}
+                {% for reply in comments.replies %}
+                    <p class="fst-italic">Réponse publiée par {{reply.name}} le {{reply.createdAt|date("d/m/Y H:i")}} :</p>
+                    <div class="my-2">=>{{reply.content|raw}}</div>
+                {% endfor %}
+
+        {% endif %}
+    
+    {% endfor %}
+</div>
+
+<hr>
+<hr>
+
+{# Ajout du formulaire #}
+<div id="ajout-commentaire">
+<h3 class="my-3">Ajouter un commentaire</h3>
+</div>
+
+{{ form_start(commentsForm)}}
+<div class="col-12 col-md-4">
+    <div class="form_group">
+        {{ form_label(commentsForm.name) }}
+        {{ form_widget(commentsForm.name) }}
+        {{ form_errors(commentsForm.name) }}
+    </div>
+</div>        
+
+<div class="row">
+    <div class="col-6 form_group">
+        {{ form_row(commentsForm.content) }}
+    </div>
+</div>
+
+{# recaptch google #}
+<div class="g-recaptcha my-3" data-sitekey="6LdUHAseAAAAAGd-3vvWPtqPd7Ii9HgQAdEKwDe_"></div>
+
+{{ form_end(commentsForm) }}
+{# Ajout du formulaire #}
+
+{% endblock %}
+
+{% block javascripts %}
+
+    <script>
+
+        {# création de JS pour mon parent ID #}
+
+        window.onload = function(){
+        //on met un écouteur d'évt sur tous les btn répondre
+        document.querySelectorAll("[data-reply]").forEach(element => {
+            element.addEventListener("click", function(){
+                //console.log(this);
+                document.querySelector("#comments_parentId").value = this.dataset.id;
+                //test navigateur = sur inspecteur => apparition de l'ID du commentaire auquel je vx répondre
+                //récupération du contexte de l'élément donc fonction non fléché (!= récupération du contexte de la page)
+            })
+        })
+        }
+
+    </script>
+
+{% endblock %}

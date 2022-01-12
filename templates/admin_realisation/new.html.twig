@@ -1,0 +1,11 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Realisation{% endblock %}
+
+{% block body %}
+    <h1>Nouveau : Mes réalisations</h1>
+
+    {{ include('admin_realisation/_form.html.twig') }}
+
+    <a href="{{ path('admin_realisation_index') }}" class="btn btn-warning">Retour à la liste</a>
+{% endblock %}

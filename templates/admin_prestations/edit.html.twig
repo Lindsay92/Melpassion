@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Prestations{% endblock %}
+
+{% block body %}
+    <h1>Mettre à jour : Prestations</h1>
+
+    {{ include('admin_prestations/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_prestations_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    {{ include('admin_prestations/_delete_form.html.twig') }}
+{% endblock %}

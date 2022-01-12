@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Edit Home{% endblock %}
+
+{% block body %}
+    <h1>Mettre à jour : Page d'accueil</h1>
+
+    {{ include('admin_home/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_home_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    {{ include('admin_home/_delete_form.html.twig') }}
+{% endblock %}

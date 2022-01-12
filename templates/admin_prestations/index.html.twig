@@ -1,0 +1,46 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Prestations{% endblock %}
+
+{% block body %}
+    <h1>Mes prestations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                {# <th>Description</th> #}
+                <th>ImageName</th>
+                {# <th>ImageSize</th> #}
+                {# <th>Mise à jour</th> #}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <a href="{{ path('admin_prestations_new') }}" class="btn btn-success">Nouveau</a>
+        {% for prestation in prestations %}
+            <tr>
+                <td>{{ prestation.id }}</td>
+                <td>{{ prestation.title }}</td>
+                <td><img src="{{ asset('images/imagePrestations/' ~ prestation.imageName) }}" alt="{{prestation.title}}" class="img-fluid w-50"></td>
+                {# <td>{{ prestation.description }}</td> #}
+                {# <td>{{ prestation.imageName }}</td> #}
+                {# <td>{{ prestation.imageSize }}</td> #}
+                {# <td>{{ prestation.updatedAt ? prestation.updatedAt|date('d-m-Y H:i:s') : '' }}</td> #}
+                <td>
+                    <a href="{{ path('admin_prestations_show', {'id': prestation.id}) }}"><img src="{{asset ('images/eye.svg')}}" alt="Voir" title="Voir"></a>
+                    <a href="{{ path('admin_prestations_edit', {'id': prestation.id}) }}"><img src="{{asset ('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
+                    <a href="{{ path('admin_prestations_delete', {'id': prestation.id}) }}"><img src="{{asset ('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

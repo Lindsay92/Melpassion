@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Edit Conditions{% endblock %}
+
+{% block body %}
+    <h1>Mettre à jour : Conditions générales</h1>
+
+    {{ include('admin_conditions/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_conditions_index') }}" class="btn btn-warning">Retour à la liste</a>
+
+    {{ include('admin_conditions/_delete_form.html.twig') }}
+{% endblock %}
