@@ -3,39 +3,25 @@
 {% block title %}Mes astuces et conseils{% endblock %}
 
 {% block body %}
+<main>
 <h2 class="text-center my-3">Mes astuces et conseils : "Home Organiser" </h2>
+    <section class="row">
+        {% for astuces in astuces %}
 
-
-<section class="row">
-    {% for astuces in astuces %}
-
-        {# <div class="col-12 col-md-6 align-items-center">
-            <div class="card my-4" ><!-- style="width: 25rem;-->
-                
-                     
-                    <img class="card-img-top" src="{{ asset("images/imageAstuces/" ~  astuces.imageName) }}" class="img-fluid" alt="Une image de présentation">
-                    
-        
-                <div class="card-body">
-                        <h6 class="card-title text-center text-dark fs-2 ">{{ astuces.description|raw }}</h6>
-                </div>     
-            </div>
-        </div>   #}
-
-
-        <div class="col-12 col-md-6 my-3 align-items-center ">
-                <div class="text-center">
-                    <img src="{{ asset("images/imageAstuces/" ~ astuces.imageName) }}" alt="{{astuces.title}}" class="img-fluid w-50 ">
+            <div class="col-12 col-md-6 my-3 align-items-center ">
+                    <div class="text-center">
+                        <img src="{{ asset("images/imageAstuces/" ~ astuces.imageName) }}" alt="{{astuces.title}}" class="img-fluid w-50 ">
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-12 col-md-6 my-3 align-self-center ">
+                <div class="col-12 col-md-6 my-3 align-self-center ">
 
-                <div class="my-3">
-                    <p class="text-center">{{ astuces.description|raw }}</p>
+                    <div class="my-3">
+                        <p class="text-center">{{ astuces.description|raw }}</p>
+                    </div>
                 </div>
-            </div>
 
-    {% endfor %}
-</section>
+        {% endfor %}
+    </section>
+</main>
 {% endblock %}

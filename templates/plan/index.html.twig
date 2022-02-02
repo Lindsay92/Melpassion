@@ -5,44 +5,44 @@
 {% block body %}
 
 <h1>{{controller_name}}</h1>
+    <main>
+        <ul class="align-items-content">
 
-    <ul class="align-items-content">
+            <li class="item my-2">
+                <a class="link active text-dark" href="{{ path('home') }}">Accueil</a>
+            </li>
+            <li class="item my-2">
+                <a class="link active text-dark" href="{{ path('realisation') }}">Mes réalisations</a>
+            </li>
+            <li class="item my-2">
+                <a class="link active text-dark">Astuces<a>     
+            </li>                         
+            <li class="item ms-3">
+                <a class="link active text-dark" href="{{ path('astuces') }}">Astuces et conseils : "Home Organiser"</a>
+            </li>
+            <li class="item ms-3">
+                <a class="link active text-dark" href="{{ path('deco') }}">Do it yourself ! : "Décoration d'intérieur"</a>
+            </li>                           
+            <li class="item my-2">
+                <a class="link active text-dark" href="{{ path('prestations') }}">Prestations et Tarifs</a>
+            </li>
+            <li class="item my-2">
+                <a class="link active text-dark" href="{{ path('contact') }}"> Démarrer mon projet</a>
+            </li>
+            <li class="item my-2">
+                <a class="link active text-dark" href="{{ path('blog') }}">Mon blog</a>
+            </li>
+            <li class="item my-2">
+                <a class="link active text-dark" href="{{path('mentions') }}" >Mentions Légales</a>
+            </li>
+            <li class="item my-2">
+                <a class="link active text-dark" href="{{path('conditions') }}">Conditions générales de ventes</a>
+            </li>
+            <li class="item my-2">
+                <a class="link active text-dark" href="{{path('plan') }}" >Plan du site</a>
+            </li>
 
-        <li class="item my-2">
-            <a class="link active text-dark" href="{{ path('home') }}">Accueil</a>
-        </li>
-        <li class="item my-2">
-            <a class="link active text-dark" href="{{ path('realisation') }}">Mes réalisations</a>
-        </li>
-        <li class="item my-2">
-            <a class="link active text-dark">Astuces<a>     
-        </li>                         
-        <li class="item ms-3">
-            <a class="link active text-dark" href="{{ path('astuces') }}">Astuces et conseils : "Home Organiser"</a>
-        </li>
-        <li class="item ms-3">
-            <a class="link active text-dark" href="{{ path('deco') }}">Do it yourself ! : "Décoration d'intérieur"</a>
-        </li>                           
-        <li class="item my-2">
-            <a class="link active text-dark" href="{{ path('prestations') }}">Prestations et Tarifs</a>
-        </li>
-        <li class="item my-2">
-            <a class="link active text-dark" href="{{ path('contact') }}"> Démarrer mon projet</a>
-        </li>
-        <li class="item my-2">
-            <a class="link active text-dark" href="{{ path('blog') }}">Mon blog</a>
-        </li>
-        <li class="item my-2">
-            <a class="link active text-dark" href="{{path('mentions') }}" >Mentions Légales</a>
-        </li>
-        <li class="item my-2">
-            <a class="link active text-dark" href="{{path('conditions') }}">Conditions générales de ventes</a>
-        </li>
-        <li class="item my-2">
-            <a class="link active text-dark" href="{{path('plan') }}" >Plan du site</a>
-        </li>
-
-    </ul>
-
+        </ul>
+    </main>
 
 {% endblock %}

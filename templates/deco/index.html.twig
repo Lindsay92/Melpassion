@@ -6,24 +6,24 @@
 
 <h2 class="text-center my-3">Do it yourself ! : "Décoration d'intérieur" </h2>
 
+<main>
+    <section class="row">
+        {% for deco in deco %}
 
-<section class="row">
-    {% for deco in deco %}
+        <div class="col-12 col-md-6 my-3 align-self-center ">
 
-    <div class="col-12 col-md-6 my-3 align-self-center ">
-
-        <div class="my-3">
-            <p class="text-center">{{ deco.description|raw }}</p>
-        </div>
-    </div>
-
-        <div class="col-12 col-md-6 my-3 align-items-center ">
-                <div class="text-center">
-                    <img src="{{ asset("images/imageDeco/" ~ deco.imageName) }}" alt="{{deco.description}}" class="img-fluid w-50">
-                </div>
+            <div class="my-3">
+                <p class="text-center">{{ deco.description|raw }}</p>
             </div>
+        </div>
 
-    {% endfor %}
-</section>
+            <div class="col-12 col-md-6 my-3 align-items-center ">
+                    <div class="text-center">
+                        <img src="{{ asset("images/imageDeco/" ~ deco.imageName) }}" alt="{{deco.description}}" class="img-fluid w-50">
+                    </div>
+                </div>
 
+        {% endfor %}
+    </section>
+</main>
 {% endblock %}

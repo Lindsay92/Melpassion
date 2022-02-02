@@ -164,14 +164,14 @@ footer{
 //=========Gestion des medias queries
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
+@media (min-width: 300px) {
     .titre2{
         font-size: 40px;
     }
-    .titre1{
-        text-align: center;
-        margin-left: 0px;
-    }
+    // .titre1{
+    //     text-align: center;
+    //     margin-left: 0px;
+    // }
     .imageContact{
         display: none;
     }
@@ -219,10 +219,10 @@ footer{
     .titre2{
         font-size: 70px;
     }
-    .titre1{
-        text-align: left;
-        margin-left: 100px;
-    }
+    // .titre1{
+    //     text-align: left;
+    //     margin-left: 100px;
+    // }
     .imageContact{
         display: block;
     }
@@ -238,10 +238,10 @@ footer{
     .titre2{
         font-size: 70px;
     }
-    .titre1{
-        text-align: left;
-        margin-left: 100px;
-    }
+    // .titre1{
+    //     text-align: left;
+    //     margin-left: 100px;
+    // }
     
     .imageContact{
         display:block;
