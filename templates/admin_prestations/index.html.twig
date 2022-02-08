@@ -9,9 +9,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
+                <th>Titre</th>
                 {# <th>Description</th> #}
-                <th>ImageName</th>
+                <th>Image</th>
                 {# <th>ImageSize</th> #}
                 {# <th>Mise à jour</th> #}
                 <th>Actions</th>
@@ -29,9 +29,9 @@
                 {# <td>{{ prestation.imageSize }}</td> #}
                 {# <td>{{ prestation.updatedAt ? prestation.updatedAt|date('d-m-Y H:i:s') : '' }}</td> #}
                 <td>
-                    <a href="{{ path('admin_prestations_show', {'id': prestation.id}) }}"><img src="{{asset ('images/eye.svg')}}" alt="Voir" title="Voir"></a>
-                    <a href="{{ path('admin_prestations_edit', {'id': prestation.id}) }}"><img src="{{asset ('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
-                    <a href="{{ path('admin_prestations_delete', {'id': prestation.id}) }}"><img src="{{asset ('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
+                    <a href="{{ path('admin_prestations_show', {'id': prestation.id}) }}"><img src="{{ asset('images/eye.svg') }}" alt="Voir" title="Voir"></a>
+                    <a href="{{ path('admin_prestations_edit', {'id': prestation.id}) }}"><img src="{{ asset('images/edit.svg') }}" alt="Mettre à jour" title="Mettre à jour"></a>
+                    <a href="{{ path('admin_prestations_delete', {'id': prestation.id}) }}"><img src="{{ asset('images/trash.svg') }}" alt="Supprimer" title="Supprimer"></a>
                 </td>
             </tr>
         {% else %}

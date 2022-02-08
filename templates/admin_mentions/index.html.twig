@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Description</th>
                 <th>Actions</th>
             </tr>
@@ -23,9 +23,9 @@
                 <td>{{ mention.title }}</td>
                 <td>{{ mention.description|raw }}</td>
                 <td>
-                    <a href="{{ path('admin_mentions_show', {'id': mention.id}) }}"><img src="{{asset ('images/eye.svg')}}" alt="Voir" title="Voir"></a>
-                    <a href="{{ path('admin_mentions_edit', {'id': mention.id}) }}"><img src="{{asset ('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
-                    <a href="{{ path('admin_mentions_delete', {'id': mention.id}) }}"><img src="{{asset ('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
+                    <a href="{{ path('admin_mentions_show', {'id': mention.id}) }}"><img src="{{ asset('images/eye.svg') }}" alt="Voir" title="Voir"></a>
+                    <a href="{{ path('admin_mentions_edit', {'id': mention.id}) }}"><img src="{{ asset('images/edit.svg') }}" alt="Mettre à jour" title="Mettre à jour"></a>
+                    <a href="{{ path('admin_mentions_delete', {'id': mention.id}) }}"><img src="{{ asset('images/trash.svg') }}" alt="Supprimer" title="Supprimer"></a>
                 </td>
             </tr>
         {% else %}

@@ -1,0 +1,33 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Commentaires clients{% endblock %}
+
+{% block body %}
+<h1 class="my-3">Commentaires clients</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Date d'apparition</th>
+            <th>Commentaires</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        {% for comment in commentaires %}
+        <tr>
+            <td>{{ comment.name }}</td>
+            <td>{{ comment.createdAt|date("d/m/Y H:i") }}</td>
+            <td>{{ comment.content|raw }}</td>
+            <td><a href="{{ path('delete_comment', {'id': comment.id}) }}" class="btn btn-danger text-white"><i class="fa fa-trash"></i></a></td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">Aucun commentaire</td>
+        </tr>
+        {% endfor %}
+    </tbody>        
+</table>
+{% endblock %}

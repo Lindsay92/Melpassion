@@ -9,11 +9,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Resume</th>
                 {# <th>Description</th> #}
-                <th>CreatedAt</th>
-                <th>ImageName</th>
+                <th>Ajouté le</th>
+                <th>Image</th>
                 {# <th>ImageSize</th> #}
                 {# <th>UpdatedAt</th> #}
                 <th>Actions</th>
@@ -33,9 +33,9 @@
                 {# <td>{{ blog.imageSize }}</td> #}
                 {# <td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
-                    <a href="{{ path('admin_blog_show', {'id': blog.id}) }}"><img src="{{asset ('images/eye.svg')}}" alt="Voir" title="Voir"></a>
-                    <a href="{{ path('admin_blog_edit', {'id': blog.id}) }}"><img src="{{asset ('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
-                    <a href="{{ path('admin_blog_delete', {'id': blog.id}) }}"><img src="{{asset ('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
+                    <a href="{{ path('admin_blog_show', {'id': blog.id}) }}"><img src="{{ asset('images/eye.svg')}}" alt="Voir" title="Voir"></a>
+                    <a href="{{ path('admin_blog_edit', {'id': blog.id}) }}"><img src="{{ asset('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
+                    <a href="{{ path('admin_blog_delete', {'id': blog.id}) }}"><img src="{{ asset('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
                 </td>
             </tr>
         {% else %}

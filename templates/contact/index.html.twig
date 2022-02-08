@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12 col-md-7">
             <section class="my-3">
-                <h2 class="">Formulaire de contact ! </h2>
+                <h2>Formulaire de contact ! </h2>
                     <p>
                     Besoin d’aide,  envie de changement,... je serais ravis de vous aider dans votre projet.<br><br>
                     Vous pouvez me contactez au +33 6 95 74 99 97 ou bien par le formulaire ci-dessous.  
@@ -19,12 +19,14 @@
 
             {#Condition alertant sur le statut du message //si rempli: message en vert confirmant l'envoi#}
             {% for label, messages in app.flashes(['success', 'warning', 'danger']) %}
+
                 {% for message in messages %}
                 <div class="alert alert-{{ label }} alert-dismissible fade show mt-3" role="alert">
                     {{ message }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close"></button>
                 </div>
                 {% endfor %}
+                
             {% endfor %}
 
     

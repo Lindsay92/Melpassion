@@ -7,7 +7,7 @@
 {# =======page détail pour présenter les services en lien aux 2 prestations ======= #}
 
     <article>
-        <div class="row my-4  align-items-center">{#images#}
+        <div class="row my-4 align-items-center justify-content-center">{#images#}
             <div class="col-12 col-md-6 row text-center">
                 <img class='service' src="{{ asset("images/imagePrestations/" ~ service.imageName) }}" class="img-fluid w-85" alt="{{ service.description }}">
             </div>
@@ -21,15 +21,10 @@
 
         {#lien retour sur la page index.html.twig de tarif#}
         
-        <p class="my-3">
+        <p class="my-3 link">
             <a href="{{ path('prestations')}}" class="text-decoration-none text-dark">
-                <img src="{{asset ('images/corner-left-up.svg')}}"> Retour "Prestations et Tarifs"
+                <img src="{{ asset('images/corner-left-up.svg') }}"> Retour "Prestations et Tarifs"
             </a>
         </p>
     </article>
-
-
-
-    
-
 {% endblock %}

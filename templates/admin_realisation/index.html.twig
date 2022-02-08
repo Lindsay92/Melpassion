@@ -9,9 +9,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Description</th>
-                <th>ImageName</th>
+                <th>Image</th>
                 {# <th>ImageSize</th> #}
                 {# <th>UpdatedAt</th> #}
                 <th>Actions</th>
@@ -30,9 +30,9 @@
                 {# <td>{{ realisation.imageSize }}</td> #}
                 {# <td>{{ realisation.updatedAt ? realisation.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
-                    <a href="{{ path('admin_realisation_show', {'id': realisation.id}) }}"><img src="{{asset ('images/eye.svg')}}" alt="Voir" title="Voir"></a>
-                    <a href="{{ path('admin_realisation_edit', {'id': realisation.id}) }}"><img src="{{asset ('images/edit.svg')}}" alt="Mettre à jour" title="Mettre à jour"></a>
-                    <a href="{{ path('admin_realisation_delete', {'id': realisation.id}) }}"><img src="{{asset ('images/trash.svg')}}" alt="Supprimer" title="Supprimer"></a>
+                    <a href="{{ path('admin_realisation_show', {'id': realisation.id}) }}"><img src="{{ asset('images/eye.svg') }}" alt="Voir" title="Voir"></a>
+                    <a href="{{ path('admin_realisation_edit', {'id': realisation.id}) }}"><img src="{{ asset('images/edit.svg') }}" alt="Mettre à jour" title="Mettre à jour"></a>
+                    <a href="{{ path('admin_realisation_delete', {'id': realisation.id}) }}"><img src="{{ asset('images/trash.svg') }}" alt="Supprimer" title="Supprimer"></a>
                 </td>
             </tr>
         {% else %}

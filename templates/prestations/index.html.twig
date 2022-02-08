@@ -8,7 +8,7 @@
 <h2 class="text-center my-4">Mes prestations</h2>
     <main>
         <article>
-            <p class="text-center lindsay"> Vous avez besoin de créer une ambiance, d’égayer une pièce, d’obtenir une tendance intemporelle ou encore besoin d’aide au rangement, deux prestations composé de services précis s’offrent à vous  !! </p>
+            <p class="text-center"> Vous avez besoin de créer une ambiance, d’égayer une pièce, d’obtenir une tendance intemporelle ou encore besoin d’aide au rangement, deux prestations composé de services précis s’offrent à vous  !! </p>
         </article>
 
         <section class="row">
@@ -21,7 +21,7 @@
                             <img class="card-img-top" src="{{ asset("images/imagePrestations/" ~ prestation.imageName) }}" class="img-fluid" alt="{{ prestation.description }}">
                             </a>
                 
-                        <div class="card-body">
+                        <div class="card-body body">
                             <a href="{{ path('prestation-detail', { 'slug': prestation.id }) }}" class="text-decoration-none">
                                 <h5 class="card-title text-center text-dark fs-2 ">{{ prestation.title }}</h5>
                             </a>
